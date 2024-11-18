@@ -4,6 +4,8 @@ import { Application, Router } from "https://deno.land/x/oak@v12.6.1/mod.ts";
 // Import the createExitSignal function from the JS+OAI shared library
 import { createExitSignal, staticServer } from "./shared/server.ts";
 
+import { promptGPT } from "./shared/openai.ts";
+
 // Create instances of the Application and Router classes
 const app = new Application();
 const router = new Router();
@@ -14,7 +16,9 @@ async function generateCocktailRecipe(ingredients, flavor, mood) {
         `Create a unique cocktail recipe using these ingredients: ${ingredients}.
          Make it ${flavor} and suitable for a ${mood} occasion. Include detailed instructions.`;
 
-    return "This is a test";
+    const recipe = await promptGPT(prompt);
+
+    return recipe;
     /*   const response = await fetch("https://api.openai.com/v1/chat/completions", {
         method: "POST",
         headers: {
