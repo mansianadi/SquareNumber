@@ -5,6 +5,7 @@ import { Application, Router } from "https://deno.land/x/oak@v12.6.1/mod.ts";
 import { createExitSignal, staticServer } from "./shared/server.ts";
 
 import { promptGPT } from "./shared/openai.ts";
+//import { promptDalle } from "./shared/openai.ts";
 
 // Create instances of the Application and Router classes
 const app = new Application();
@@ -14,27 +15,21 @@ const router = new Router();
 async function generateCocktailRecipe(ingredients, flavor, mood) {
     const prompt =
         `Create a unique cocktail recipe using these ingredients: ${ingredients}.
-         Make it ${flavor} and suitable for a ${mood} occasion. Include detailed instructions.`;
+         Make it ${flavor} and suitable for a ${mood} occasion. Include detailed instructions.
+         `;
+    const rawRecipe = await promptGPT(prompt, { max_tokens: 1005 });
 
-    const recipe = await promptGPT(prompt);
+    /*  const response = await promptDalle(
+        `Generate a cocktail based on ${ingredients}.
+        The flavor is "${flavor}", the mood is "${mood}". `,
+    );
+    */
+    // Remove markdown characters
+    const cleanedRecipe = rawRecipe
+        .replace(/[*#_`]/g, "")
+        .trim();
 
-    return recipe;
-    /*   const response = await fetch("https://api.openai.com/v1/chat/completions", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${API_KEY}`,
-        },
-        body: JSON.stringify({
-            model: "gpt-4",
-            messages: [{ role: "user", content: prompt }],
-            max_tokens: 1200,
-            temperature: 1.7,
-        }),
-    });
-
-    const data = await response.json();
-    return data.choices?.[0]?.message?.content || "Couldn't generate a recipe.";*/
+    return cleanedRecipe;
 }
 
 // API for generating cocktail recipe
