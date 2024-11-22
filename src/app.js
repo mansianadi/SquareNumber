@@ -16,18 +16,22 @@ async function generateCocktailRecipe(ingredients, flavor, mood) {
     const prompt =
         `Create a unique cocktail recipe using these ingredients: ${ingredients}.
          Make it ${flavor} and suitable for a ${mood} occasion. Include detailed instructions.
+         Add Emojis. Make the name of the cocktail, Ingredients and Instructions in orange.
          `;
     const rawRecipe = await promptGPT(prompt, { max_tokens: 1005 });
 
-    /*  const response = await promptDalle(
-        `Generate a cocktail based on ${ingredients}.
-        The flavor is "${flavor}", the mood is "${mood}". `,
-    );
-    */
     // Remove markdown characters
     const cleanedRecipe = rawRecipe
         .replace(/[*#_`]/g, "")
         .trim();
+
+    //const response = await promptDalle(
+    //  `Generate a cocktail based on ${ingredients}.
+    //    The flavor is "${flavor}", the mood is "${mood}". `,
+    //);
+
+    //const imageResponse = await promptDalle(response);
+    //const imageUrl = imageResponse.url;
 
     return cleanedRecipe;
 }
