@@ -16,8 +16,7 @@ async function generateCocktailRecipe(ingredients, flavor, mood) {
     const prompt =
         `Create a unique cocktail recipe using these ingredients: ${ingredients}.
          Make it ${flavor} and suitable for a ${mood} occasion. Include detailed instructions.
-         Add Emojis. Make the name of the cocktail, Ingredients and Instructions in orange.
-         `;
+         Add alot of Emojis.`;
     const rawRecipe = await promptGPT(prompt, { max_tokens: 1005 });
 
     // Remove markdown characters
@@ -36,6 +35,19 @@ async function generateCocktailRecipe(ingredients, flavor, mood) {
     return cleanedRecipe;
 }
 
+// Function to generate cocktail image based on the recipe
+/* async function generateCocktailImage(ingredients, flavor, mood) {
+    const prompt =
+        `Generate an illustration of a cocktail using ${ingredients}.
+                    The flavor is "${flavor}", and the mood is "${mood}".
+                    The cocktail should look vibrant and artistic, with a beautiful presentation.`;
+
+    const imageResponse = await promptDalle(prompt);
+    const imageUrl = imageResponse.url;
+
+    return imageUrl;
+}
+*/
 // API for generating cocktail recipe
 router.post("/api/cocktail", async (ctx) => {
     console.log("/API/Cocktail");
@@ -50,6 +62,7 @@ router.post("/api/cocktail", async (ctx) => {
     }
 
     const recipe = await generateCocktailRecipe(ingredients, flavor, mood);
+    //   const imageUrl = await generateCocktailImage(ingredients, flavor, mood);
     ctx.response.body = { recipe };
 });
 
