@@ -5,13 +5,13 @@ import { Application, Router } from "https://deno.land/x/oak@v12.6.1/mod.ts";
 import { createExitSignal, staticServer } from "./shared/server.ts";
 
 import { promptGPT } from "./shared/openai.ts";
-//import { promptDalle } from "./shared/openai.ts";
+import { promptDalle } from "./shared/openai.ts";
 
 // Create instances of the Application and Router classes
 const app = new Application();
 const router = new Router();
 
-// Function to generate cocktail recipe using OpenAI API
+// Function to generate cocktail recipe using API
 async function generateCocktailRecipe(ingredients, flavor, mood) {
     const prompt =
         `Create a unique cocktail recipe using these ingredients: ${ingredients}.
@@ -24,30 +24,20 @@ async function generateCocktailRecipe(ingredients, flavor, mood) {
         .replace(/[*#_`]/g, "")
         .trim();
 
-    //const response = await promptDalle(
-    //  `Generate a cocktail based on ${ingredients}.
-    //    The flavor is "${flavor}", the mood is "${mood}". `,
-    //);
-
-    //const imageResponse = await promptDalle(response);
-    //const imageUrl = imageResponse.url;
-
     return cleanedRecipe;
 }
 
 // Function to generate cocktail image based on the recipe
-/* async function generateCocktailImage(ingredients, flavor, mood) {
-    const prompt =
-        `Generate an illustration of a cocktail using ${ingredients}.
+async function generateCocktailImage(ingredients, flavor, mood) {
+    const prompt = `Generate a picture of a cocktail using ${ingredients}.
                     The flavor is "${flavor}", and the mood is "${mood}".
-                    The cocktail should look vibrant and artistic, with a beautiful presentation.`;
+                    The cocktail should look realistic, with a beautiful presentation.`;
 
     const imageResponse = await promptDalle(prompt);
     const imageUrl = imageResponse.url;
-
     return imageUrl;
 }
-*/
+
 // API for generating cocktail recipe
 router.post("/api/cocktail", async (ctx) => {
     console.log("/API/Cocktail");
@@ -61,9 +51,18 @@ router.post("/api/cocktail", async (ctx) => {
         return;
     }
 
-    const recipe = await generateCocktailRecipe(ingredients, flavor, mood);
-    //   const imageUrl = await generateCocktailImage(ingredients, flavor, mood);
-    ctx.response.body = { recipe };
+    // Generate recipe and image
+    try {
+        const recipe = await generateCocktailRecipe(ingredients, flavor, mood);
+        const imageUrl = await generateCocktailImage(ingredients, flavor, mood);
+        ctx.response.body = { recipe, imageUrl }; // Return both recipe and image URL
+    } catch (error) {
+        console.error("Error generating cocktail:", error);
+        ctx.response.status = 500;
+        ctx.response.body = {
+            error: "Failed to generate cocktail recipe or image.",
+        };
+    }
 });
 
 // Tell the app to use the router

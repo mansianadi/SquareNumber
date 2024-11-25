@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>AI Cocktail Mixologist</title>
+        <title>Cocktail Genie</title>
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
@@ -36,8 +36,14 @@
 
             <div id="result" class="hidden">
                 <h2>----🍸🍸🍸----</h2>
-                <pre id="cocktailRecipe"></pre>
-                <img id="cocktailImage" style="display: none" alt="Cocktail" />
+                <div class="recipe-container">
+                    <pre id="cocktailRecipe"></pre>
+                    <img
+                        id="cocktailImage"
+                        style="display: block"
+                        alt="Cocktail"
+                    />
+                </div>
             </div>
         </div>
         <script src="script.js"></script>

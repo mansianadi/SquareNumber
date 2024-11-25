@@ -23,6 +23,20 @@ document.getElementById("cocktailForm").addEventListener(
             } else {
                 document.getElementById("cocktailRecipe").textContent =
                     data.recipe;
+                // Display the image
+                const imageElement = document.getElementById("cocktailImage");
+                imageElement.src = data.imageUrl; // Set the image URL
+                imageElement.alt = "Generated Cocktail Image";
+                imageElement.style.display = "block";
+                imageElement.classList.remove("hidden"); // Ensure it's visible
+
+                const preElement = document.getElementById("cocktailRecipe");
+                if (imageElement.src && imageElement.style.display !== "none") {
+                    preElement.style.whiteSpace = "pre-wrap"; // Wrap text if the image is present
+                } else {
+                    preElement.style.whiteSpace = "nowrap"; // No wrap if image is hidden or not available
+                }
+
                 document.getElementById("result").classList.remove("hidden");
             }
         } catch (error) {
