@@ -1,55 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>🫒 Cocktail Genie</title>
-        <link rel="icon" href="data:,">
-        <link rel="stylesheet" href="style.css" />
-    </head>
-    <body>
-        <div class="container">
-            <h1>🍸 Cocktail Genie 🍸</h1>
-            <form id="cocktailForm">
-                <label for="ingredients">Enter Ingredients:</label>
-                <input
-                    type="text"
-                    id="ingredients"
-                    placeholder="e.g., vodka, lime, mint"
-                />
-
-                <label for="flavor">Preferred Flavor:</label>
-                <input
-                    type="text"
-                    id="flavor"
-                    placeholder="e.g., sweet, sour, spicy"
-                />
-
-                <label for="mood">Mood or Occasion:</label>
-                <input
-                    type="text"
-                    id="mood"
-                    placeholder="e.g., party, relaxing"
-                />
-                <br>
-                <br>
-                <button type="submit">Generate Recipe</button>
-            </form>
-
-            <div id="result" class="hidden">
-                <br>
-                <h2>✨✨✨✨✨ 🍾🍾🍾 ✨✨✨✨✨</h2>
-                <br>
-                <div class="recipe-container">
-                    <pre id="cocktailRecipe"></pre>
-                    <img
-                        id="cocktailImage"
-                        style="display: block"
-                        alt="Cocktail"
-                    />
-                </div>
-            </div>
-        </div>
-        <script src="script.js"></script>
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Square Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Square Calculator</h1>
+    <input id="numberInput" type="number" placeholder="Enter a number" />
+    <button id="calculateButton">Calculate Square</button>
+    <div id="result"></div>
+    <script src="script.js"></script>
+  </body>
 </html>
