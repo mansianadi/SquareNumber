@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Voyare - Resources</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <h1 class="logo">Voyare</h1>
+            <nav role="navigation">
+                <a class="toggle" href="#"><span>&#9776;</span></a>
+                <ul class="menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a class="active" href="resources.html">Collab</a></li>
+                    <li><a href="itinerary.html">Itinerary</a></li>
+                    <li><a href="health-profile.html">Profile</a></li>
+                </ul>
+            </nav>
+            <div class="user-info">Mansi Anadi</div>
+        </header>
+
+        <main>
+            <section id="resources">
+                <div class="welcome-banner">
+                    <h2>Collab</h2>
+                    <p>Travel tips, medical guidelines, and health advice.</p>
+                </div>
+            </section>
+        </main>
+        <script src="jquery.min.js"></script>
+        <script src="script.js"></script>
+
+        <script>
+            $("document").ready(function () {
+                $(".toggle").click(function () {
+                    $(".menu").stop().slideToggle("slow");
+                });
+            });
+        </script>
+    </body>
+</html>

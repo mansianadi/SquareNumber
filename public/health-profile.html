@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Voyare - Health Profile</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <h1 class="logo">Voyare</h1>
+            <nav role="navigation">
+                <a class="toggle" href="#"><span>&#9776;</span></a>
+                <ul class="menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="resources.html">Collab</a></li>
+                    <li><a href="itinerary.html">Itinerary</a></li>
+                    <li>
+                        <a href="health-profile.html" class="active">Profile</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="user-info">Mansi Anadi</div>
+        </header>
+
+        <main>
+            <section id="health-profile">
+                <div class="itinerary-banner">
+                    <h2>Your Health Profile</h2>
+                    <div id="health-profile-details">
+                        <p>
+                            Details about health conditions, preferences, and
+                            alerts.
+                        </p>
+                        <p><strong>Allergies:</strong> Pollen, Dust</p>
+                        <p><strong>Conditions:</strong> Asthma</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <script src="jquery.min.js"></script>
+        <script src="script.js"></script>
+
+        <script>
+            $("document").ready(function () {
+                $(".toggle").click(function () {
+                    $(".menu").stop().slideToggle("slow");
+                });
+            });
+        </script>
+    </body>
+</html>

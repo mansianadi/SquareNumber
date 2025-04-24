@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Voyare - Itinerary</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <h1 class="logo">Voyare</h1>
+            <nav role="navigation">
+                <a class="toggle" href="#"><span>&#9776;</span></a>
+                <ul class="menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="resources.html">Collab</a></li>
+                    <li>
+                        <a href="itinerary.html" class="active">Itinerary</a>
+                    </li>
+                    <li><a href="health-profile.html">Profile</a></li>
+                </ul>
+            </nav>
+            <div class="user-info">Mansi Anadi</div>
+        </header>
+
+        <main>
+            <section id="itinerary">
+                <div class="itinerary-banner">
+                    <h2>Itinerary</h2>
+                    <div class="form-element">
+                        <label for="destination">Destination:</label>
+                        <input
+                            type="text"
+                            id="destination"
+                            placeholder="Enter your destination"
+                        />
+                    </div>
+
+                    <div class="form-element">
+                        <label for="travelDates">Travel Dates:</label>
+                        <input
+                            type="text"
+                            id="travelDates"
+                            placeholder="Enter travel dates (e.g., Dec 1 - Dec 7)"
+                        />
+                    </div>
+
+                    <div class="form-element">
+                        <label for="healthConditions">Health Conditions:</label>
+                        <input
+                            type="text"
+                            id="healthConditions"
+                            placeholder="Enter health conditions (e.g., Asthma, Pollen Allergy)"
+                        />
+                    </div>
+
+                    <button id="generate-itinerary-btn">
+                        Generate Itinerary
+                    </button>
+
+                    <div id="itinerary-output"></div>
+                </div>
+            </section>
+        </main>
+
+        <script src="it.js"></script>
+        <script src="jquery.min.js"></script>
+        <script src="script.js"></script>
+
+        <script>
+            $("document").ready(function () {
+                $(".toggle").click(function () {
+                    $(".menu").stop().slideToggle("slow");
+                });
+            });
+        </script>
+    </body>
+</html>

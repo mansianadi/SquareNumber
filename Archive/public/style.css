@@ -1,0 +1,119 @@
+/* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #00b2ff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #222;
+  font-weight: bold;
+  padding: 0.5rem;
+}
+
+nav a.active {
+  border-bottom: 2px solid #222;
+}
+
+.user-info {
+  font-weight: bold;
+}
+
+/* Section Styling */
+section {
+  padding: 2rem;
+  background: #fff;
+  margin: 1rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Welcome Banner */
+.welcome-banner {
+  background-color: #e2f2ff;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.welcome-banner button {
+  background-color: #0075ff;
+  color: #222;
+  border: none;
+  padding: 0.7rem 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Content Grid */
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Map Container */
+.map-container img {
+  width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+}
+
+/* Alerts and Travel Group */
+.alerts, .travel-group, .facilities {
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.status {
+  font-weight: bold;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.status.clear {
+  background-color: #c8e6c9;
+  color: #1b5e20;
+}
+
+.status.warning {
+  background-color: #ffe0b2;
+  color: #e65100;
+}
+
+button.invite-button {
+  background-color: #0075ff;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+}
