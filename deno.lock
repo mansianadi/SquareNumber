@@ -302,8 +302,6 @@
     "https://deno.land/std@0.97.0/testing/_diff.ts": "961eaf6d9f5b0a8556c9d835bbc6fa74f5addd7d3b02728ba7936ff93364f7a3",
     "https://deno.land/std@0.97.0/testing/asserts.ts": "341292d12eebc44be4c3c2ca101ba8b6b5859cef2fa69d50c217f9d0bfbcfd1f",
     "https://deno.land/x/cliffy@v1.0.0-rc.3/ansi/colors.ts": "328916ea1627c202b39f2ed0f1ca65a573cfb75fa8986aa3dbcc0b7463911005",
-    "https://deno.land/x/dotenv@v3.2.2/mod.ts": "077b48773de9205266a0b44c3c3a3c3083449ed64bb0b6cc461b95720678d38e",
-    "https://deno.land/x/dotenv@v3.2.2/util.ts": "693730877b13f8ead2b79b2aa31e2a0652862f7dc0c5f6d2f313f4d39c7b7670",
     "https://deno.land/x/expect@v0.2.9/expect.ts": "128c60f94ff3f977e2a649463238e403f9bdb8e6ab77e65214c0236bd61b0111",
     "https://deno.land/x/expect@v0.2.9/matchers.ts": "ba7360b73c5031a22449fa98eb4d5dbe7f256a88dd4c22ccae96dc6c01f0b19c",
     "https://deno.land/x/expect@v0.2.9/mock.ts": "562d4b1d735d15b0b8e935f342679096b64fe452f86e96714fe8616c0c884914",
